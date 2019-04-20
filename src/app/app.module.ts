@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {routing} from './app.routing';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    InventoryComponent
   ],
   imports: [
     routing,

@@ -1,3 +1,64 @@
 <div align="center">
-  <h1>Profile</h1>
+  <div class="login-form">
+    <form>
+      <h1 class="text-center">Profile</h1>
+      <label for="username">
+        Username
+      </label>
+      <div class="form-group">
+        <input id="username"
+               type="text"
+               class="form-control"
+               placeholder="Alice"
+               required="required"
+               [readonly]="true">
+      </div>
+      <label for="password">
+        Password
+      </label>
+      <div class="form-group">
+        <input id="password"
+               type="password"
+               class="form-control"
+               placeholder="********"
+               required="required">
+      </div>
+      <label for="firstName">
+        First Name
+      </label>
+      <div class="form-group">
+        <input id="firstName"
+               type="text"
+               class="form-control"
+               placeholder="Alice"
+               required="required">
+      </div>
+      <label for="lastName">
+        Last Name
+      </label>
+      <div class="form-group">
+        <input id="lastName"
+               type="text"
+               class="form-control"
+               placeholder="Wonderland"
+               required="required">
+      </div>
+      <label for="email">
+        Email
+      </label>
+      <div class="form-group">
+        <input id="email"
+               type="email"
+               class="form-control"
+               placeholder="abe@xyz.com"
+               required="required">
+      </div>
+      <div class="form-group">
+        <button type="submit"
+                class="btn btn-primary btn-block">
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
