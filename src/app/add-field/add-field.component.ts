@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-field.component.css']
 })
 export class AddFieldComponent implements OnInit {
-
+  defaultValue: number;
   constructor() { }
 
   ngOnInit() {
+    this.defaultValue = 1;
   }
 
 }

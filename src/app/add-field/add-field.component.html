@@ -1,3 +1,63 @@
-<p>
-  add-field works!
-</p>
+<div class="container webdev-field">
+  <h1>Field</h1>
+  <div class="card-deck">
+    <div class="card"
+         style="width:18rem">
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <label for="field-name">Field Name</label>
+            <input id="field-name" class="form-control" type="text" placeholder="Name">
+          </li>
+          <li class="list-group-item">
+            <select class="btn btn-outline-primary btn-block webdev-dropdown-field-type">
+              <option value="1">Short string</option>
+              <option value="2">Long string</option>
+              <option value="3">Number</option>
+              <option value="4">Date</option>
+              <option value="5">Boolean</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <div [ngSwitch]="defaultValue">
+              Default Value
+              <div *ngSwitchCase="1">
+                <input class="form-control" type="text">
+              </div>
+              <div *ngSwitchCase="2">
+                <textarea class="form-control"></textarea>
+              </div>
+              <div *ngSwitchCase="3">
+                <input class="form-control" type="number">
+              </div>
+              <div *ngSwitchCase="4">
+                <input class="form-control" type="date">
+              </div>
+              <div *ngSwitchCase="5">
+                <input class="form-control" type="checkbox">
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <button class="btn btn-primary btn-block">
+              Update
+            </button>
+            <button class="btn btn-success btn-block">
+              Create
+            </button>
+            <button class="btn btn-danger btn-block">
+              Remove
+            </button>
+            <div class="webdev-home-btn">
+              <a routerLink="/product">
+                <button class="btn btn-block">
+                  Cancel
+                </button>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
