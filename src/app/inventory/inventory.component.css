@@ -1,0 +1,32 @@
+.card-deck {
+  float: left;
+  padding: 20px;
+  max-width: 30%;
+}
+
+.webdev-dropdown-users option{
+  background-color: white;
+  color: #0b51c5;
+}
+
+.webdev-inventory {
+  padding-top: 20px;
+}
+
+.form-group {
+  padding-left: 20px;
+}
+
+.webdev-inventory-content {
+  padding-top: 30px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.webdev-home-btn:hover {
+  color: white;
+}
+

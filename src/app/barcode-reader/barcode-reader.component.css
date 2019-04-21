@@ -18,3 +18,7 @@ canvas.drawingBuffer {
   left: 0;
   top: 0;
 }
+
+.webdev-scan {
+  padding-top: 20px;
+}
