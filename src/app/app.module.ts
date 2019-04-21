@@ -13,6 +13,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
 import { AddFieldComponent } from './add-field/add-field.component';
 import { ViewAuditComponent } from './view-audit/view-audit.component';
+import {UserServiceClient} from './services/user.service.client';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { ViewAuditComponent } from './view-audit/view-audit.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    UserServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
