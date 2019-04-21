@@ -10,7 +10,7 @@
             <input id="field-name" class="form-control" type="text" placeholder="Name">
           </li>
           <li class="list-group-item">
-            <select class="btn btn-outline-primary btn-block webdev-dropdown-field-type">
+            <select [(ngModel)]="defaultValue" class="btn btn-outline-primary btn-block webdev-dropdown-field-type">
               <option value="1">Short string</option>
               <option value="2">Long string</option>
               <option value="3">Number</option>
@@ -22,13 +22,13 @@
             <div [ngSwitch]="defaultValue">
               Default Value
               <div *ngSwitchCase="1">
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" placeholder="Default text">
               </div>
               <div *ngSwitchCase="2">
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" placeholder="Default text description"></textarea>
               </div>
               <div *ngSwitchCase="3">
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" placeholder="0">
               </div>
               <div *ngSwitchCase="4">
                 <input class="form-control" type="date">

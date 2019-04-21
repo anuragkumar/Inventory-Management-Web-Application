@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.component';
@@ -28,6 +28,7 @@ import { ViewAuditComponent } from './view-audit/view-audit.component';
     ViewAuditComponent
   ],
   imports: [
+    FormsModule,
     routing,
     BrowserModule,
     AppRoutingModule
