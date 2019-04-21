@@ -10,6 +10,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ProductComponent } from './product/product.component';
+import { AddFieldComponent } from './add-field/add-field.component';
+import { ViewAuditComponent } from './view-audit/view-audit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { InventoryComponent } from './inventory/inventory.component';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
-    InventoryComponent
+    InventoryComponent,
+    ProductComponent,
+    AddFieldComponent,
+    ViewAuditComponent
   ],
   imports: [
     routing,

@@ -1,0 +1,15 @@
+.webdev-product {
+  padding-top: 20px;
+}
+
+.card-deck {
+  max-width: 70%;
+}
+
+.webdev-home-btn a:hover {
+  text-decoration: none;
+}
+
+.webdev-home-btn {
+  padding-top: 2px;
+}

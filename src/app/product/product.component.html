@@ -1,0 +1,74 @@
+<div class="container webdev-product">
+  <h1>Product Details</h1>
+
+  <div class="card-deck">
+    <div class="card"
+         style="width:18rem">
+      <img class="card-img-top"
+           src="https://picsum.photos/300/200"/>
+
+      <div class="card-body">
+        <p class="card-text">Product Name</p>
+        <div>
+          <h3>Current Capacity</h3>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-control" type="number" placeholder="0"/>
+              <div class="btn-group">
+                <a href="#" class="btn btn-primary">-</a>
+                <a href="#" class="btn btn-primary">+</a>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <label for="date">Date</label>
+              <input id="date" class="form-control" type="date">
+            </li>
+            <li class="list-group-item">
+              <label for="time">Time</label>
+              <input id="time" class="form-control" type="time">
+            </li>
+            <li class="list-group-item">
+              <label for="sku">Sku</label>
+              <input id="sku" class="form-control" type="text">
+            </li>
+            <li class="list-group-item">
+              <label for="label1">Field Label 1</label>
+              <input id="label1" class="form-control" type="text" placeholder="Field Label 1 Value">
+            </li>
+            <li class="list-group-item">
+              <label for="label2">Field Label 2</label>
+              <input id="label2" class="form-control" type="text" placeholder="Field Label 2 Value">
+            </li>
+            <li class="list-group-item">
+              <label for="sku">Field Label 3</label>
+              <input id="label3" class="form-control" type="text" placeholder="Field Label 3 Value">
+            </li>
+            <li class="list-group-item">
+              <label for="sku">Field Label 4</label>
+              <input id="label4" class="form-control" type="text" placeholder="Field Label 4 Value">
+            </li>
+            <li class="list-group-item">
+              <button class="btn btn-primary btn-block">
+                Update
+              </button>
+              <div class="webdev-home-btn">
+                <a routerLink="/field">
+                  <button class="btn btn-primary btn-block">
+                    Add Field
+                  </button>
+                </a>
+              </div>
+              <div class="webdev-home-btn">
+                <a routerLink="/audit">
+                  <button class="btn btn-primary btn-block">
+                    View Audit
+                  </button>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
