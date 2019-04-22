@@ -13,10 +13,7 @@
       <form class="form-inline" role="form">
         <div class="form-group">
           <select class="btn btn-outline-primary webdev-dropdown-users">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option *ngFor="let user of users" value={{user.username}}>{{user.username}}</option>
           </select>
         </div>
         <div class="form-group">

@@ -23,4 +23,8 @@ export class UserServiceClient {
     console.log(this.users);
     alert('Registered');
   }
+
+  getAllUsers() {
+    return this.users;
+  }
 }

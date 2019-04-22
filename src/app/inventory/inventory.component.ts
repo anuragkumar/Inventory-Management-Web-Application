@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserServiceClient} from '../services/user.service.client';
+import {User} from '../models/user.model.client';
 
 @Component({
   selector: 'app-inventory',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-
-  constructor() { }
+  users: User[];
+  constructor(private userService: UserServiceClient) { }
 
   ngOnInit() {
+    this.users = this.userService.getAllUsers();
   }
 
 }
