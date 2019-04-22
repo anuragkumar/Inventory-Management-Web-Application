@@ -11,7 +11,7 @@ export class User {
                firstName: string,
                lastName: string,
                email: string) {
-    this.id = (new Date()).getTime();
+    this.id = (new Date()).getTime()
     this.username = username;
     this.password = password;
     this.firstName = firstName;

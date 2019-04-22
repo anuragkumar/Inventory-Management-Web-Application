@@ -17,4 +17,10 @@ export class UserServiceClient {
       }
     }
   }
+
+  register(user: User) {
+    this.users.push(user);
+    console.log(this.users);
+    alert('Registered');
+  }
 }
