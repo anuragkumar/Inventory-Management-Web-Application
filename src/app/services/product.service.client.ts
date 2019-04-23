@@ -1,17 +1,24 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../models/product.model.client';
 import {PRODUCTS} from '../mock-data/product.mock.client';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Injectable()
 export class ProductServiceClient {
   products: Product[] = PRODUCTS;
 
-  getAllProducts() {
+  getAllProducts(sort: string) {
     console.log(this.products);
-    return this.products.sort((a, b) => {
-      return b.created.getTime() - a.created.getTime();
-    });
+    if (sort === 'DESC') {
+      return this.products.sort((a, b) => {
+        return b.created.getTime() - a.created.getTime();
+      });
+    }
+
+    if (sort === 'ASC') {
+      return this.products.sort((a, b) => {
+        return a.created.getTime() - b.created.getTime();
+      });
+    }
   }
 
   getProductsByUser(username: string) {
