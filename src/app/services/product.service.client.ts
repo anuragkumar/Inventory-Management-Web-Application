@@ -7,8 +7,26 @@ export class ProductServiceClient {
   products: Product[] = PRODUCTS;
   filteredProducts: Product[] = PRODUCTS;
 
-  getAllProducts(sort: string) {
+  _getPerPageProducts(page: number) {
+    const count = 6 * page;
+    const flag = 0;
+    const pageProduct = [];
+    if (count === 6) {
+      for (let i = 0; i < 6; i++) {
+        pageProduct.push(this.filteredProducts[i]);
+      }
+    }
+    this.filteredProducts = pageProduct;
+    return this.filteredProducts;
+  }
+
+  getTotalProducts() {
+    return this.products.length;
+  }
+
+  getAllProducts(sort: string, page: number) {
     console.log(this.products);
+    // this.filteredProducts = this._getPerPageProducts(page);
     if (sort === 'DESC') {
       return this.filteredProducts.sort((a, b) => {
         return b.created.getTime() - a.created.getTime();
@@ -22,7 +40,7 @@ export class ProductServiceClient {
     }
   }
 
-  getProductsByUser(username: string) {
+  getProductsByUser(username: string, page: number) {
     if (username === 'All Users') {
       this.filteredProducts = this.products;
       return this.filteredProducts;
@@ -32,7 +50,7 @@ export class ProductServiceClient {
     }
   }
 
-  filterByDate(startDate: Date, endDate: Date) {
+  filterByDate(startDate: Date, endDate: Date, page: number) {
     if (!startDate) {
       alert('Start Date cannot be empty');
       return this.filteredProducts;

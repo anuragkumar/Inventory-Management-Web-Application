@@ -15,18 +15,25 @@ export class InventoryComponent implements OnInit {
   sort: string;
   startDate: Date;
   endDate: Date;
+  page: number;
+  totalPages: number[];
+  currentPage: number;
 
   constructor(private userService: UserServiceClient,
               private productService: ProductServiceClient) { }
 
   ngOnInit() {
-    this.users = this.userService.getAllUsers();
     this.sort = 'DESC';
-    this.products = this.productService.getAllProducts(this.sort);
+    this.currentPage = 1;
+    this.users = this.userService.getAllUsers();
+    this.products = this.productService.getAllProducts(this.sort, this.currentPage);
+    this.totalPages = Array(Math.ceil(this.productService.getTotalProducts() / 6))
+      .fill(1)
+      .map((x, i) => x + i);
   }
 
   getProductByUser(username: string) {
-    this.products = this.productService.getProductsByUser(username);
+    this.products = this.productService.getProductsByUser(username, this.currentPage);
   }
 
   sortByDate() {
@@ -35,12 +42,15 @@ export class InventoryComponent implements OnInit {
     } else {
       this.sort = 'DESC';
     }
-    this.products = this.productService.getAllProducts(this.sort);
+    this.products = this.productService.getAllProducts(this.sort, this.currentPage);
   }
 
   filterByDate() {
-    this.products = this.productService.filterByDate(this.startDate, this.endDate);
+    this.products = this.productService.filterByDate(this.startDate, this.endDate, this.currentPage);
     this.startDate = null;
     this.endDate = null;
+  }
+
+  changePage(page: number) {
   }
 }
