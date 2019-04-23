@@ -14,6 +14,7 @@ import { ProductComponent } from './product/product.component';
 import { AddFieldComponent } from './add-field/add-field.component';
 import { ViewAuditComponent } from './view-audit/view-audit.component';
 import {UserServiceClient} from './services/user.service.client';
+import {ProductServiceClient} from './services/product.service.client';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {UserServiceClient} from './services/user.service.client';
     AppRoutingModule
   ],
   providers: [
-    UserServiceClient
+    UserServiceClient,
+    ProductServiceClient
   ],
   bootstrap: [AppComponent]
 })

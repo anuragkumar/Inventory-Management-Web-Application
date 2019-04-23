@@ -12,9 +12,16 @@
     <div>
       <form class="form-inline" role="form">
         <div class="form-group">
-          <select class="btn btn-outline-primary webdev-dropdown-users">
-            <option *ngFor="let user of users" value={{user.username}}>{{user.username}}</option>
-          </select>
+          <label>
+            <select class="btn btn-outline-primary webdev-dropdown-users"
+                    (change)="getProductByUser($event.target.value)">
+              <option value="All Users">All Users</option>
+              <option *ngFor="let user of users"
+                      [value]="user.username">
+                {{user.username}}
+              </option>
+            </select>
+          </label>
         </div>
         <div class="form-group">
           <button class="btn btn-outline-primary">
@@ -39,50 +46,14 @@
   </div>
 
   <div class="row">
-    <div class="card-deck">
+    <div *ngFor="let product of products" class="card-deck">
       <div class="card"
            style="width:18rem">
         <img class="card-img-top"
              src="https://picsum.photos/300/200"/>
         <div class="card-body">
-          <h5 class="card-title">Temp</h5>
-          <p class="card-text">Card text.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-deck">
-      <div class="card"
-           style="width:18rem">
-        <img class="card-img-top"
-             src="https://picsum.photos/300/200"/>
-        <div class="card-body">
-          <h5 class="card-title">Temp</h5>
-          <p class="card-text">Card text.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-deck">
-      <div class="card"
-           style="width:18rem">
-        <img class="card-img-top"
-             src="https://picsum.photos/300/200"/>
-        <div class="card-body">
-          <h5 class="card-title">Temp</h5>
-          <p class="card-text">Card text.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-deck">
-      <div class="card"
-           style="width:18rem">
-        <img class="card-img-top"
-             src="https://picsum.photos/300/200"/>
-        <div class="card-body">
-          <h5 class="card-title">Temp</h5>
-          <p class="card-text">Card text.</p>
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-text">{{product.created}}</p>
         </div>
       </div>
     </div>
