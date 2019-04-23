@@ -13,6 +13,8 @@ export class InventoryComponent implements OnInit {
   users: User[];
   products: Product[];
   sort: string;
+  startDate: Date;
+  endDate: Date;
 
   constructor(private userService: UserServiceClient,
               private productService: ProductServiceClient) { }
@@ -34,5 +36,11 @@ export class InventoryComponent implements OnInit {
       this.sort = 'DESC';
     }
     this.products = this.productService.getAllProducts(this.sort);
+  }
+
+  filterByDate() {
+    this.products = this.productService.filterByDate(this.startDate, this.endDate);
+    this.startDate = null;
+    this.endDate = null;
   }
 }

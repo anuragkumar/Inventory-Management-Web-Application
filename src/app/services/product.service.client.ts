@@ -31,4 +31,25 @@ export class ProductServiceClient {
       return this.filteredProducts;
     }
   }
+
+  filterByDate(startDate: Date, endDate: Date) {
+    if (!startDate) {
+      alert('Start Date cannot be empty');
+      return this.filteredProducts;
+    } else {
+      if (!endDate) {
+        startDate = new Date(startDate);
+        this.filteredProducts = this.filteredProducts.filter((product) =>
+          product.created.getTime() > startDate.getTime());
+        return this.filteredProducts;
+      } else {
+        startDate = new Date(startDate);
+        endDate = new Date(endDate);
+        this.filteredProducts = this.filteredProducts.filter((product) =>
+          product.created.getTime() > startDate.getTime() &&
+          product.created.getTime() < endDate.getTime());
+        return this.filteredProducts;
+      }
+    }
+  }
 }
