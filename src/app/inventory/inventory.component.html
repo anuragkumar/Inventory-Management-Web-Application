@@ -63,6 +63,10 @@
              src="https://picsum.photos/300/200"/>
         <div class="card-body">
           <h5 class="card-title">{{product.title}}</h5>
+          <button (click)="editProduct(product.sku)"
+                  class="btn btn-primary">
+            Edit
+          </button>
           <p class="card-text">{{product.created}}</p>
         </div>
       </div>

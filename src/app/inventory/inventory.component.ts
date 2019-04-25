@@ -66,4 +66,7 @@ export class InventoryComponent implements OnInit {
       this.currentPage = page;
     }
   }
+
+  editProduct(sku: number) {
+  }
 }
