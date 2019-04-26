@@ -9,12 +9,14 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
 import { AddFieldComponent } from './add-field/add-field.component';
 import { ViewAuditComponent } from './view-audit/view-audit.component';
 import {UserServiceClient} from './services/user.service.client';
 import {ProductServiceClient} from './services/product.service.client';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,13 @@ import {ProductServiceClient} from './services/product.service.client';
     FormsModule,
     routing,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     UserServiceClient,
-    ProductServiceClient
+    ProductServiceClient,
+    {provide: LocationStrategy, useClass: PathLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

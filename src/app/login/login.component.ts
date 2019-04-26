@@ -18,13 +18,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const user = this.userService.login(this.username, this.password);
-    if (!user) {
-      alert('Invalid Credentials');
-      return;
-    }
-    if (user) {
-      this.router.navigate(['inventory']);
-    }
+    this.userService.login(this.username, this.password)
+      .subscribe(data => {
+        alert('Logged in');
+      });
+    // if (!user) {
+    //   alert('Invalid Credentials');
+    //   return;
+    // }
+    // if (user) {
+    //   this.router.navigate(['inventory']);
+    // }
   }
 }
