@@ -20,7 +20,7 @@ export class UserServiceClient {
   login(username: string, password: string) {
     console.log(this.users);
 
-    return this.httpClient.post('http://localhost:8080/api/login',
+    return this.httpClient.post('https://assignment9-webdev.herokuapp.com/api/login',
       {
         username,
         password
@@ -29,7 +29,7 @@ export class UserServiceClient {
 
   logout() {
     console.log('inside client service logout');
-    return this.httpClient.get('http://localhost:8080/api/logout', httpOptions);
+    return this.httpClient.get('https://assignment9-webdev.herokuapp.com/api/logout', httpOptions);
   }
 
   register(user: User) {
@@ -39,7 +39,7 @@ export class UserServiceClient {
   }
 
   getProfile() {
-    return this.httpClient.get('http://localhost:8080/api/profile', httpOptions);
+    return this.httpClient.get('https://assignment9-webdev.herokuapp.com/api/profile', httpOptions);
   }
 
   updateProfile(user: User) {
