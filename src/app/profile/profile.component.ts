@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getProfile().subscribe(user => {
       this.user = user;
     }, response => {
+      console.log(response);
       alert('Please login');
       this.router.navigate(['login']);
     });

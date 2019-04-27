@@ -4,7 +4,7 @@ import {USERS} from '../mock-data/user.mock.client';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})
 };
 
 @Injectable()
@@ -20,11 +20,16 @@ export class UserServiceClient {
   login(username: string, password: string) {
     console.log(this.users);
 
-    return this.httpClient.post('https://assignment9-webdev.herokuapp.com/api/login',
+    return this.httpClient.post('http://localhost:8080/api/login',
       {
         username,
         password
       }, httpOptions);
+  }
+
+  logout() {
+    console.log('inside client service logout');
+    return this.httpClient.get('http://localhost:8080/api/logout', httpOptions);
   }
 
   register(user: User) {
@@ -34,7 +39,7 @@ export class UserServiceClient {
   }
 
   getProfile() {
-    return this.httpClient.post('https://assignment9-webdev.herokuapp.com/api/profile', this.body, httpOptions);
+    return this.httpClient.get('http://localhost:8080/api/profile', httpOptions);
   }
 
   updateProfile(user: User) {

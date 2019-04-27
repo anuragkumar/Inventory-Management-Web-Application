@@ -4,8 +4,12 @@ const app = express();
 
 require('./data/db')();
 
-const session = require('express-session')
+let loggedInUser;
+
+const session = require('express-session');
+
 app.use(session({
+  name: 'server-session-cookie-id',
   resave: false,
   saveUninitialized: true,
   secret: 'any string'
@@ -36,13 +40,20 @@ app.post('/api/login', (req, res) => {
   console.log(req.body);
   userDao.findUserByCredentials(req.body.username, req.body.password).then(user => {
     if (user) {
-      req.session['currentUser'] = user;
+      // req.session['currentUser'] = user;
+      loggedInUser = user;
+      // console.log('login ' + req.session['currentUser'].username);
       res.send(user);
-    }
-    else {
+    } else {
       res.send(0);
     }
   });
+});
+
+app.get('/api/logout', (req, res) => {
+  console.log("inside server logout");
+  req.session.destroy();
+  res.sendStatus(200);
 });
 
 app.post('/api/register', (req, res) => {
@@ -56,14 +67,14 @@ app.post('/api/register', (req, res) => {
   })
 });
 
-app.post('/api/profile', (req, res) => {
+app.get('/api/profile', (req, res) => {
   console.log('profile');
-  console.log(req.session['currentUser']);
-  if (!req.session['currentUser']) {
-    res.send(0);
+  console.log(loggedInUser);
+  if (!loggedInUser) {
+    res.sendStatus(403);
   }
   else {
-    res.send(req.session['currentUser']);
+    res.send(loggedInUser);
   }
 });
 
