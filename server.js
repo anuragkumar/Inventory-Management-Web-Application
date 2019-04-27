@@ -5,6 +5,7 @@ const app = express();
 require('./data/db')();
 
 let loggedInUser;
+let x = 0;
 
 const session = require('express-session');
 
@@ -33,7 +34,11 @@ app.use(function(req, res, next) {
 app.use(express.static('./dist/assignment9'));
 
 const userDao = require("./data/daos/user.dao.server");
-//userDao.populateDatabase();
+
+if (x === 0) {
+  userDao.populateDatabase();
+  x = x + 1;
+}
 
 //login
 app.post('/api/login', (req, res) => {
