@@ -9,7 +9,7 @@
         <input id="username"
                type="text"
                class="form-control"
-               placeholder="Alice"
+               placeholder="{{user.username}}"
                required="required"
                [readonly]="true">
       </div>
@@ -20,7 +20,7 @@
         <input id="password"
                type="password"
                class="form-control"
-               placeholder="********"
+               placeholder="{{user.password}}"
                required="required">
       </div>
       <label for="firstName">
@@ -30,7 +30,7 @@
         <input id="firstName"
                type="text"
                class="form-control"
-               placeholder="Alice"
+               placeholder="{{user.firstName}}"
                required="required">
       </div>
       <label for="lastName">
@@ -40,7 +40,7 @@
         <input id="lastName"
                type="text"
                class="form-control"
-               placeholder="Wonderland"
+               placeholder="{{user.lastName}}"
                required="required">
       </div>
       <label for="email">
@@ -50,7 +50,7 @@
         <input id="email"
                type="email"
                class="form-control"
-               placeholder="abe@xyz.com"
+               placeholder="{{user.email}}"
                required="required">
       </div>
       <div class="form-group">

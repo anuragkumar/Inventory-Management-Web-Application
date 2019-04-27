@@ -12,6 +12,10 @@ export class UserServiceClient {
   constructor(private httpClient: HttpClient) {}
   url: 'http://localhost:8080/';
   users: User[] = USERS;
+  body: {
+    'temp',
+    'temp1'
+  };
 
   login(username: string, password: string) {
     console.log(this.users);
@@ -21,20 +25,20 @@ export class UserServiceClient {
         username,
         password
       }, httpOptions);
-    // for (let i = 0; i < this.users.length; i++) {
-    //   const user = this.users[i];
-    //   console.log(user);
-    //   if (username === user.username &&
-    //     password === user.password) {
-    //     return user.username;
-    //   }
-    // }
   }
 
   register(user: User) {
-    this.users.push(user);
-    console.log(this.users);
-    alert('Registered');
+    console.log('client service');
+    console.log(user);
+    return this.httpClient.post('http://localhost:8080/api/register', user, httpOptions);
+  }
+
+  getProfile() {
+    return this.httpClient.post('http://localhost:8080/api/profile', this.body, httpOptions);
+  }
+
+  updateProfile(user: User) {
+    return this.httpClient.post('http://localhost:8080/api/update', user, httpOptions);
   }
 
   getAllUsers() {

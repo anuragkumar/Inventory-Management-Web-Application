@@ -49,5 +49,33 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+app.post('/api/register', (req, res) => {
+  console.log(req.body);
+  userDao.createUser(req.body).then(user => {
+    if (req.session['currentUser']) {
+      req.session.destroy();
+      req.session['currentUser'] = user;
+      res.send(user);
+    }
+  })
+});
+
+app.post('/api/profile', (req, res) => {
+  console.log('profile');
+  console.log(req.session['currentUser']);
+  if (!req.session['currentUser']) {
+    res.send(0);
+  }
+  else {
+    res.send(req.session['currentUser']);
+  }
+});
+
+app.post('/api/update', (req, res) => {
+  user = req.session['currentUser'];
+  updateUser = req.body;
+  console.log(user._id);
+  res.send("Done");
+});
 
 app.listen(process.env.PORT || 8080);
