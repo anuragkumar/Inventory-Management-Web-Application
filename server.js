@@ -28,10 +28,6 @@ app.use(function(req, res, next) {
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/assignment9'));
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join('./dist/assignment9/index.html'));
-});
-
 const userDao = require("./data/daos/user.dao.server");
 //userDao.populateDatabase();
 
@@ -76,6 +72,10 @@ app.post('/api/update', (req, res) => {
   updateUser = req.body;
   console.log(user._id);
   res.send("Done");
+});
+
+app.get('*', function (req, res) {
+  res.sendFile('./dist/assignment9/index.html', { root: __dirname });
 });
 
 app.listen(process.env.PORT || 8080);
