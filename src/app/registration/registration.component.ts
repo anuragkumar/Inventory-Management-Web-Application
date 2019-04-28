@@ -34,18 +34,12 @@ export class RegistrationComponent implements OnInit {
 
     console.log(this.username);
     console.log(this.password);
-    this.user = new User(this.username, this.password);
-    // const user = {
-    //   username: this.username,
-    //   password: this.password,
-    //   firstName: 'temp',
-    //   lastName: 'temp',
-    //   email: 'temp'};
-    this.userService.register(this.user).subscribe(user => {
+
+    this.userService.register(this.username, this.password).subscribe(user => {
       alert('Registered');
       this.router.navigate(['inventory']);
     }, response => {
-      alert('Some error occurred');
+      alert('Some error occurred ' + response);
     });
     //
     // this.userService.register(user);

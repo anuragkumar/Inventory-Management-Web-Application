@@ -3,6 +3,8 @@ import {User} from '../models/user.model.client';
 import {USERS} from '../mock-data/user.mock.client';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
+// https://assignment9-webdev.herokuapp.com/
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})
 };
@@ -32,10 +34,9 @@ export class UserServiceClient {
     return this.httpClient.get('https://assignment9-webdev.herokuapp.com/api/logout', httpOptions);
   }
 
-  register(user: User) {
+  register(username: string, password: string) {
     console.log('client service');
-    console.log(user);
-    return this.httpClient.post('https://assignment9-webdev.herokuapp.com/api/register', user, httpOptions);
+    return this.httpClient.post('https://assignment9-webdev.herokuapp.com/api/register', {username, password}, httpOptions);
   }
 
   getProfile() {
@@ -47,6 +48,6 @@ export class UserServiceClient {
   }
 
   getAllUsers() {
-    return this.users;
+    return this.httpClient.get('https://assignment9-webdev.herokuapp.com/api/user', httpOptions);
   }
 }

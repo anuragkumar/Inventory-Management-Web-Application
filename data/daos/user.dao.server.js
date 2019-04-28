@@ -22,8 +22,14 @@ findUserByCredentials = (username, password) =>
   userModel.collection.findOne({username: username, password: password});
 
 createUser = (user) =>
-  userModel.collection.insert(user);
+  userModel.collection.insertOne(user);
 
+findAllUsers = () =>
+  userModel.find();
+
+// findAllUsers().then(res => {
+//   console.log(res);
+// });
 
 // populateDatabase().then(res => console.log(res));
 // findUserByCredentials('alice', 'alice').then(rs => console.log(rs));
@@ -31,5 +37,6 @@ createUser = (user) =>
 module.exports = {
   populateDatabase,
   findUserByCredentials,
-  createUser
+  createUser,
+  findAllUsers
 }

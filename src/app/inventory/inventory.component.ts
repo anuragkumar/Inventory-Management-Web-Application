@@ -10,7 +10,7 @@ import {ProductServiceClient} from '../services/product.service.client';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  users: User[];
+  users: any;
   products: Product[];
   sort: string;
   startDate: Date;
@@ -26,7 +26,9 @@ export class InventoryComponent implements OnInit {
   ngOnInit() {
     this.sort = 'DESC';
     this.currentPage = 1;
-    this.users = this.userService.getAllUsers();
+    this.userService.getAllUsers().subscribe(data => {
+      this.users = data;
+    });
     this.products = this.productService.getAllProducts(this.sort, this.currentPage);
     this.lastPage = this.productService.getTotalProducts();
     this.totalPages = Array(Math.ceil(this.lastPage / 6))

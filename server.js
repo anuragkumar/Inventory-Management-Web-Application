@@ -5,7 +5,6 @@ const app = express();
 require('./data/db')();
 
 let loggedInUser;
-let x = 0;
 
 const session = require('express-session');
 
@@ -35,11 +34,6 @@ app.use(express.static('./dist/assignment9'));
 
 const userDao = require("./data/daos/user.dao.server");
 
-if (x === 0) {
-  userDao.populateDatabase();
-  x = x + 1;
-}
-
 //login
 app.post('/api/login', (req, res) => {
   console.log(req.body);
@@ -64,11 +58,10 @@ app.get('/api/logout', (req, res) => {
 app.post('/api/register', (req, res) => {
   console.log(req.body);
   userDao.createUser(req.body).then(user => {
-    if (req.session['currentUser']) {
-      req.session.destroy();
-      req.session['currentUser'] = user;
-      res.send(user);
-    }
+    loggedInUser = user;
+    res.send(user);
+  }, error => {
+    res.sendStatus(500);
   })
 });
 
@@ -84,10 +77,13 @@ app.get('/api/profile', (req, res) => {
 });
 
 app.post('/api/update', (req, res) => {
-  user = req.session['currentUser'];
-  updateUser = req.body;
-  console.log(user._id);
   res.send("Done");
+});
+
+app.get('/api/user', (req, res) => {
+  userDao.findAllUsers().then(response => {
+    res.send(response);
+  });
 });
 
 app.get('*', function (req, res) {
